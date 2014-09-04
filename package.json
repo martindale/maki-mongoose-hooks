@@ -1,0 +1,24 @@
+{
+  "name": "maki-mongoose-hooks",
+  "version": "0.1.0",
+  "description": "adds patch events to maki",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "maki",
+    "framework",
+    "events",
+    "redis",
+    "pubsub"
+  ],
+  "author": "Eric Martindale",
+  "license": "MIT",
+  "dependencies": {
+    "fast-json-patch": "^0.3.10"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
+}
