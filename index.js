@@ -39,7 +39,7 @@ module.exports = exports = function( schema , options ) {
       // generate our patch set from the stub
       var patches = patch.generate( observer );
       // publish the patch set
-      options.maki.redis.publish( options.resource.routes.query , JSON.stringify(patches) );
+      options.maki.messenger.publish( options.resource.routes.query , JSON.stringify(patches) );
       
     } else if (doc.meta.wasModified) {
       // generate our patch set from the doc
@@ -48,7 +48,7 @@ module.exports = exports = function( schema , options ) {
       var id = doc[ options.resource.fields.id ];
       var channel = options.resource.routes.query + '/' + id;
       // publish changes to the cluster
-      options.maki.redis.publish( channel , JSON.stringify(patches) );
+      options.maki.messenger.publish( channel , JSON.stringify(patches) );
     }
   });
 

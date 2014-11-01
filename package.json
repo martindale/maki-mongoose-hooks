@@ -1,6 +1,6 @@
 {
   "name": "maki-mongoose-hooks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "adds patch events to maki",
   "main": "index.js",
   "scripts": {
