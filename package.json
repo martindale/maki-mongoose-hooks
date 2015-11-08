@@ -16,7 +16,7 @@
   "author": "Eric Martindale",
   "license": "MIT",
   "dependencies": {
-    "fast-json-patch": "^0.3.10"
+    "fast-json-patch": "^0.5.4"
   },
   "devDependencies": {
     "mocha": "^1.21.4"

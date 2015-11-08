@@ -42,11 +42,21 @@ module.exports = exports = function( schema , options ) {
       options.maki.messenger.publish( options.resource.routes.query , JSON.stringify(patches) );
       
     } else if (doc.meta.wasModified) {
+      
+      var superdoc = doc.toObject();
+      // TODO: recurse
+      Object.keys(superdoc).forEach(function(key) {
+        if (superdoc[key].constructor.name === 'ObjectID') {
+          superdoc[key] = superdoc[key].toString();
+        }
+      });
+
       // generate our patch set from the doc
-      var patches = patch.compare( doc.meta.old , doc.toObject() );
+      var patches = patch.compare( doc.meta.old , superdoc );
       // publish the patch set
       var id = doc[ options.resource.fields.id ];
       var channel = options.resource.routes.query + '/' + id;
+
       // publish changes to the cluster
       options.maki.messenger.publish( channel , JSON.stringify(patches) );
     }
